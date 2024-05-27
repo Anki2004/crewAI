@@ -1,7 +1,8 @@
 from crewai import Agent
 from tools import yt_tool
 
-
+from dotenv import load_dotenv
+load_dotenv()
 import os
 os.environ["OPEN_API_KEY"] = os.getenv("OPEN_AI_KEY")
 # pass your api key below 
@@ -15,6 +16,7 @@ blog_researcher = Agent(
     backstory = (
         "expertisse in understanding videos in AI Data Science, Machine Learning and Gen AI"
     ),
+    llm = llm,
     tools = [yt_tool],
     allow_delegations = True,
 
@@ -29,6 +31,7 @@ blog_writer = Agent(
     backstory = (
         "expertisse in writing tech stories about AI Data Science, Machine Learning and Gen AI"
     ),
+    llm = llm,
     tools = [yt_tool],
     allow_delegation = False
 )
