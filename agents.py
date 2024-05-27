@@ -2,7 +2,10 @@ from crewai import Agent
 from tools import yt_tool
 
 
-
+import os
+os.environ["OPEN_API_KEY"] = os.getenv("OPEN_AI_KEY")
+# pass your api key below 
+os.environ["OPENAI_MODEL_NAME"] = " "
 
 blog_researcher = Agent(
     role = 'Blog researcher from youtube videos',
